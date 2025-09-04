@@ -5,7 +5,7 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 public class MIMEParseTest extends TestCase
 {
@@ -24,10 +24,10 @@ public class MIMEParseTest extends TestCase
                 .parseMediaRange("application/xml;q=").toString());
         assertEquals("('application', 'xml', {'q':'1',})", MIMEParse
                 .parseMediaRange("application/xml ; q=").toString());
-        assertEquals("('application', 'xml', {'b':'other','q':'1',})",
+        assertEquals("('application', 'xml', {'q':'1','b':'other',})",
                 MIMEParse.parseMediaRange("application/xml ; q=1;b=other")
                         .toString());
-        assertEquals("('application', 'xml', {'b':'other','q':'1',})",
+        assertEquals("('application', 'xml', {'q':'1','b':'other',})",
                 MIMEParse.parseMediaRange("application/xml ; q=2;b=other")
                         .toString());
         // Java URLConnection class sends an Accept header that includes a
